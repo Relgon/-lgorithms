@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta charset="utf8">
+	<title>EJS page</title>
+	<style>
+		table{
+			border: 2px solid black;
+		}
+		td{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	function show(h){
+		alert(h);
+	}
+</script>
+<div class=".ul-container">	
+	<!-- <% if (arr.t.length) { %> 
+		<ul>
+		<li>X</li>
+		<% arr.t.forEach(function(t) { %>
+			<li><%= t %></li>
+		<% }) %>
+		</ul>
+	<% }%>  -->
+	<% if (arr.t.length){ %>
+		<% var count=0; %>
+		<table id="tbl">
+		<tr><td>t</td><td>x</td><td>y</td><td>Xt</td><td>Yt</td><td>ResX</td><td>ResY</td></tr>
+		<% for (var i=0;i<arr.t.length;i++) { %>
+			<% if (arr.t[i]>=0.1*count){ %>
+				<tr><td><%= arr.t[i].toFixed(1) %></td><td><%= arr.x[i] %></td><td><%= arr.y[i] %></td><td><%= arr.xt[i] %></td><td><%= arr.yt[i] %></td><td><%= Math.abs(arr.x[i]-arr.xt[i]) %></td><td><%= Math.abs(arr.y[i]-arr.yt[i])%></td></tr>
+				<% console.log (arr.yt[i]) %> 
+				<% count++; %>
+
+			<% }%>
+
+		<% } %>
+		</table>
+
+	<% } %>
+	
+
+</div>
+<span> Крок: <%= arr.h%></span>
+</body>
+</html>
